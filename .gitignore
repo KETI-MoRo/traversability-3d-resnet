@@ -1,5 +1,31 @@
+# Add by user
+dataset/frames/2022-*/
+dataset/frames/2023-*/
+dataset/keep_*/
+dataset/*.zip
+model_*/
+*.tar
+output_test_CAM/*.png
+trash.py
+output/exp_CAM/
+exp/moving_windows/frames/
+exp/moving_windows/keep/
+exp/six_videos/frames/
+exp/six_videos/origin/
+exp/six_videos/keep/*/
+exp/six_videos_statistics/permutation/
+exp/six_videos_statistics/frames/
+exp/six_videos_statistics/test/
+exp/six_videos_statistics/test_*/
+exp/six_videos_statistics/visualize/
+exp/hough/extract_hough*/
+output/train/
+output/test/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -106,10 +132,8 @@ ipython_config.py
 #pdm.lock
 #   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
 #   in version control.
-#   https://pdm.fming.dev/latest/usage/project/#working-with-version-control
+#   https://pdm.fming.dev/#use-with-ide
 .pdm.toml
-.pdm-python
-.pdm-build/
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
