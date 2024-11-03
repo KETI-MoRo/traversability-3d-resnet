@@ -195,7 +195,7 @@ def main(args):
 
         for epoch in range(0, args.max_epoch):
             train_loss, train_acc, _ = train(fold, epoch, model, train_loader, optimizer)
-            val_loss, val_acc, _ =  evaluate(fold, epoch, model, val_loader)
+            val_loss, val_acc, _ = evaluate(fold, epoch, model, val_loader)
             
             print('fold : {}, epoch : {}/{}, train/loss : {}, train/acc : {}, val/loss : {}, val/acc :{}'.format(
                 fold, epoch, args.max_epoch,

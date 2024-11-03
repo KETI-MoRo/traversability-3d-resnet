@@ -112,7 +112,7 @@ def main(args):
     load_model(model, args.path_weight)
 
     for epoch in range(1):
-        val_loss, val_acc, _ =  evaluate(epoch, model, val_loader, path_output_folder)
+        val_loss, val_acc, _ = evaluate(epoch, model, val_loader, path_output_folder)
         print('epoch : {}, val/loss : {}, val/acc : {}'.format( epoch, val_loss, val_acc))
     
     end = time.time()

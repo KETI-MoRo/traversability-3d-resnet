@@ -130,8 +130,7 @@ def evaluate(epoch, model, val_loader, args):
 # Load original RGB for CAM overlay
 def load_original_frame( sequence_idx, frame_idx, args ):
 
-    #annotationfile_path = os.path.join(os.path.dirname(args.path_weight), 'annotation_val.txt')
-    annotationfile_path = './exp/CAM/list_CAM.txt'
+    annotationfile_path = os.path.join(os.path.dirname(args.path_weight), 'annotation_val.txt')
 
     f = open(annotationfile_path)
     lines = f.readlines()
@@ -206,7 +205,7 @@ def main(args):
     load_model(model, args.path_weight)
 
     for epoch in range(1):
-        val_loss, val_acc, _ =  evaluate(epoch, model, val_loader, args)
+        val_loss, val_acc, _ = evaluate(epoch, model, val_loader, args)
         print('epoch : {}, val/loss : {}, val/acc : {}'.format( epoch, val_loss, val_acc))
 
 
