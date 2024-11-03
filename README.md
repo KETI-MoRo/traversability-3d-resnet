@@ -47,7 +47,7 @@ This is the official PyTorch implementation for "Mode Prediction and Adaptation 
 ## Dataset Preparation
 - This section will be updated.
 - The folder tree
-    '''
+    ```
     nvadmin@gpu1:/mnt/nvme1n1p1/sword32/workspace2/traversability-3d-resnet$ tree -d -L 2 ./
     ./
     ├── dataset
@@ -72,7 +72,7 @@ This is the official PyTorch implementation for "Mode Prediction and Adaptation 
     │   ├── six_videos
     │   └── six_videos_statistics
     └── src
-    '''
+    ```
 
 ## Preparation for 5-Fold Cross-Validation
 - The dataset is randomly divided into 5 folds.
