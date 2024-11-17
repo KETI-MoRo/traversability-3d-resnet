@@ -11,7 +11,7 @@ def load_permutation( path, idx):
 
     f = open(filename, 'r')
     lines = f.readlines()
-    lines = [line.rstrip('\n') for line in lines]	# Remove line breaks
+    lines = [line.rstrip('\n') for line in lines]	# Remove newline characters
     f.close()
 
     # [NOTE] Do not sort as it is a permutation!

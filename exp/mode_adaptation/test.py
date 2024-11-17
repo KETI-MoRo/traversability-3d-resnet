@@ -96,7 +96,7 @@ def create_test_frames_folders(args, path_frames):
         idx = 0
 
         for line in lines :
-            line = line.rstrip('\n')    # Remove line breaks
+            line = line.rstrip('\n')    # Remove newline characters
             #print(line)    # ./dataset/CURB2023/2022-07-18-10-42-55_frame4275_4wheel/2022-07-18-10-42-55_frame4275_4wheel_000000.jpg
 
             # Path to the image file for destination

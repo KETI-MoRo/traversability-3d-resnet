@@ -258,8 +258,17 @@ This is the official PyTorch implementation for "Mode Prediction and Adaptation 
         margin : 20, Num of TP, FP, FN : 7234, 1311, 455, Num of test : 9000, Precision : 0.8465769455822119, Recall : 0.9408245545584601
         ```
 
-### Visualize
-- It will be updated.
+### Visualize a Synthetic Sequence
+- Execution
+    ```bash
+    # cd /workspace/traversability-3d-resnet/
+    # /opt/conda/bin/python /workspace/traversability-3d-resnet/exp/mode_adaptation/visualize_a_synthetic_sequence.py --path_test_output_txt ./output/exp_mode_adaptation/test/241117-080850/permutation0000000200.txt
+    ```
+    - [NOTE] Please set the `--path_test_output_txt` as a your text file output of the ResNet 3D inference output.
+- Output
+    - The visualization output will be saved as a PNG file in `./output/exp_mode_adaptation/visualize_a_permutation/`.
+    - the output file name is identical with `--path_test_output_txt`.
+    - Please see the Fig. 11 in [our paper](https://ieeexplore.ieee.org/document/10744006).
 
 ## Citation
 ```bibtex
