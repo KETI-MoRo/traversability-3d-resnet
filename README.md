@@ -287,3 +287,4 @@ This is the official PyTorch implementation for "Mode Prediction and Adaptation 
 
 ## Acknowledgment
 - This work was supported by Korea Evaluation Institute of Industrial Technology ([KEIT](https://www.keit.re.kr/)) grant funded by the Korea government([MOTIE](https://www.motie.go.kr/)) {(No. 20023455, Development of Cooperate Mapping, Environment Recognition and Autonomous Driving Technology for Multi Mobile Robots Operating in Large-scale Indoor Workspace), (No.20005062, Development of Artificial Intelligence Robot Autonomous Navigation Technology for Agile Movement in Crowded Space)}
+- [Dong Yeop Kim](https://github.com/hiddensword) thanks to [Jae Min Lee](https://github.com/Apo704), [Hyunsik Son](https://github.com/happyshs12), Hanseop Jeong, and [Okjoon Lee](https://github.com/2oj) for manufacturing and operation of the six-wheeled mobile robots.
