@@ -9,14 +9,16 @@ This is the official PyTorch implementation for "Mode Prediction and Adaptation 
 ## Installation
 
 ### Docker Container
-- [pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel](https://hub.docker.com/layers/pytorch/pytorch/1.11.0-cuda11.3-cudnn8-devel/images/sha256-9bfcfa72b6b244c1fbfa24864eec97fb29cfafc065999e9a9ba913fa1e690a02?context=explore)
+- Recommended Docker image
+    - [pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel](https://hub.docker.com/layers/pytorch/pytorch/1.11.0-cuda11.3-cudnn8-devel/images/sha256-9bfcfa72b6b244c1fbfa24864eec97fb29cfafc065999e9a9ba913fa1e690a02?context=explore)
 - An example of Ubuntu command for creation of the Docker container.
     - Launches the Docker container in interactive mode (`-it`).
     - Enables GPU support (`--gpus all`).
     - Names the container `traversability-3d-resnet`.
     - Sets the working directory inside the container to `/workspace` (`-w /workspace`), so when you enter the container, you’ll be in the `/workspace` folder by default.
+    - Mounts the host directory `/mnt/nvme1n1p1/workspace/` to the container directory `/workspace` using `bind mount` (`-v /mnt/nvme1n1p1/workspace/:/workspace`).
     ```bash
-    $ sudo docker run -it --gpus all --name traversability-3d-resnet -w /workspace pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+    $ sudo docker run -it --gpus all --name traversability-3d-resnet -w /workspace -v /mnt/nvme1n1p1/workspace/:/workspace pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
     ```
 - Entering the `traversability-3d-resnet` Container
     ```bash
@@ -33,7 +35,7 @@ This is the official PyTorch implementation for "Mode Prediction and Adaptation 
     - `[NOTE]` Replace <USER_NAME> and <USER_EMAIL> with your GitHub account data.
     ```bash
     # git config --global user.name "<YOUR_NAME>"
-    # git config --global user.email <USER_EMAIL>
+    # git config --global user.email "<USER_EMAIL>"
     ```
 - Cloning our Git repository.
     ```bash
@@ -49,34 +51,46 @@ This is the official PyTorch implementation for "Mode Prediction and Adaptation 
     ```
 
 ## Dataset Preparation
-- This section will be updated.
-- The folder tree
-    ```
-    nvadmin@gpu1:/mnt/nvme1n1p1/sword32/workspace2/traversability-3d-resnet$ tree -d -L 2 ./
-    ./
-    ├── dataset
-    │   ├── CURB2023
-    │   │   ├── [video name 0]
-    │   │   │   ├── [video name 0]_000000.jpg
-    │   │   │   ├── [video name 0]_000001.jpg
-    │   │   │   ├── ...
-    │   │   │   └── [video name 0]_000031.jpg
-    │   │   ├── ...
-    │   │   └── ...
-    │   ├── fold0
-    │   ├── fold1
-    │   ├── fold2
-    │   ├── fold3
-    │   └── fold4
-    ├── exp
-    │   ├── CAM
-    │   ├── hough
-    │   ├── moving_windows
-    │   ├── ResNet_confmat
-    │   ├── six_videos
-    │   └── six_videos_statistics
-    └── src
-    ```
+1. Download the `CURB2023.zip`
+    - Download the `CURB2023` dataset from [our Google Drive](https://drive.google.com/file/d/16b0ph5pDVqfW3qzUyStl__TNDw_vQ0o7/view?usp=sharing).
+    - Assume that the downloaded `CURB2023.zip` is stored as `~/Downloads/CURB2023.zip`.
+2. Use `bind mount` for Docker settings as said in above `Installation`.
+    - We recommend using a `bind mount` for Docker to access the dataset.
+    - Assume the mounted folder is located at `/mnt/nvme1n1p1/workspace/`.
+3. Unzip the downloaded `CURB2023.zip`.
+    - Extract the contents of the `CURB2023.zip` file to the desired directory.
+    - Example unzip command :
+        ```bash
+        $ unzip ~/Downloads/CURB2023.zip -d /mnt/nvme1n1p1/workspace/traversability-3d-resnet/dataset/CURB2023/
+        ```
+    - [NOTE] `dataset/CURB2023/` is included in `.gitignore`.
+    - The folder tree
+        ```
+        nvadmin@gpu1:/mnt/nvme1n1p1/workspace/traversability-3d-resnet$ tree -d -L 2 ./
+        ./
+        ├── dataset
+        │   ├── CURB2023
+        │   │   ├── [video name 0]
+        │   │   │   ├── [video name 0]_000000.jpg
+        │   │   │   ├── [video name 0]_000001.jpg
+        │   │   │   ├── ...
+        │   │   │   └── [video name 0]_000031.jpg
+        │   │   ├── ...
+        │   │   └── ...
+        │   ├── fold0
+        │   ├── fold1
+        │   ├── fold2
+        │   ├── fold3
+        │   └── fold4
+        ├── exp
+        │   ├── CAM
+        │   ├── hough
+        │   ├── moving_windows
+        │   ├── ResNet_confmat
+        │   ├── six_videos
+        │   └── six_videos_statistics
+        └── src
+        ```
 
 ## Preparation for 5-Fold Cross-Validation
 - The dataset is randomly divided into 5 folds.
