@@ -52,7 +52,7 @@ This is the official PyTorch implementation for "Mode Prediction and Adaptation 
 
 ## Dataset Preparation
 1. Download the `CURB2023.zip`
-    - Download the `CURB2023` dataset from [our Google Drive](https://drive.google.com/file/d/16b0ph5pDVqfW3qzUyStl__TNDw_vQ0o7/view?usp=sharing).
+    - Please note that the dataset associated with this paper has not yet been de-identified for personal information. If you are interested in accessing the dataset, we kindly ask you to contact the first author via email.
     - Assume that the downloaded `CURB2023.zip` is stored as `~/Downloads/CURB2023.zip`.
 2. Use `bind mount` for Docker settings as said in above `Installation`.
     - We recommend using a `bind mount` for Docker to access the dataset.
